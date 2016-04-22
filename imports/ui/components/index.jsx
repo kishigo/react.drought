@@ -1,11 +1,10 @@
 import React from 'react';
 import { Hello, GoodBye } from './hello.jsx';
-
+import { Link } from 'react-router';
 
 export const Index = () => <div>Enclosing
 	<h3>Index</h3>
 	<Hello what='wtf'/>
-	<GoodBye which={this.props.which} />
 	</div>;
 
 export const Sample = React.createClass({
@@ -15,11 +14,20 @@ export const Sample = React.createClass({
 	moveState() {
 		this.setState({target: 'omg'});
 	},
+    gotoPage() {
+        console.log('gotoPage()');
+    },
 	render: function() {
+        console.log('Sample: render');
 		return (
 			<div>
 				<h3 onClick={this.moveState}>Move the state</h3>
 			<GoodBye which={this.state.target} />
+                <h3 onClick={this.gotoPage}>Go to page</h3>
+                <ul role="nav">
+                    <li><Link to="/index">index</Link></li>
+                    <li><Link to="/hello">hello</Link></li>
+                    </ul>
 			</div>	
 		);
 	}

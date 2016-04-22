@@ -8,8 +8,9 @@ import { Hello } from '../../ui/components/hello.jsx';
 Meteor.startup( () => {
 	render(
 		<Router history={ browserHistory }>
-			<Route path="/" which='omg' component={ Sample } />
-			<Route path="/hello" component={ Hello } />
+			<Route path="/" component={ Sample } />
+            <Route path="/hello" component={ Hello } />
+            <Route path="/index" component={ Index } />
 		</Router>,
 		document.getElementById( 'react-root' )
 	);
