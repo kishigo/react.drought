@@ -14,7 +14,7 @@ var what = 'omg';
 
 export const GoodBye = function GoodBye (which) {
 	console.log('which: ' + which.which);
-	switch (what) {
+	switch (which.which) {
 	case 'wtf':
 		return ( <h2>wtf</h2>);
 		break;

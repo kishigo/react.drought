@@ -9,10 +9,17 @@ export const Index = () => <div>Enclosing
 	</div>;
 
 export const Sample = React.createClass({
+	getInitialState() {
+		return { target: 'wtf' };
+	},
+	moveState() {
+		this.setState({target: 'omg'});
+	},
 	render: function() {
 		return (
 			<div>
-			<GoodBye which={this.props.which} />
+				<h3 onClick={this.moveState}>Move the state</h3>
+			<GoodBye which={this.state.target} />
 			</div>	
 		);
 	}
