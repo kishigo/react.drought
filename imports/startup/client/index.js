@@ -22,8 +22,20 @@
  * THE SOFTWARE.
  */
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { ReactDOM, render } from 'react-dom';
 import './routes.jsx';
+import { createStore } from 'redux';
+import { combineReducers } from 'redux';
+import { Provider, connect } from 'react-redux';
+import Sample from '../../ui/components/index.jsx';
+
+
+//render(
+//    <Provider store={store}>
+//        <Sample />
+//        </Provider>,
+//    document.getElementById('react-root')
+//);
 
 //var child1 = React.createElement('li', null, 'First Text Content');
 //var root = React.createElement('ul', { className: 'my-list' }, child1);
