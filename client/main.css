@@ -1,1 +1,7 @@
 /* CSS declarations go here */
+.div3 {
+    border: 1px solid blue;
+    box-sizing: border-box;
+    flex: 1 1 auto;
+    /*height: 100%;*/
+}

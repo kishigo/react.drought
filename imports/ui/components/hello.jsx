@@ -2,17 +2,19 @@ import React from 'react';
 
 //export const Hello = () => <h3>Hello</h3>;
 
-export const Hello = function Hello (what) {
-	return ( <div className="commentBox">
-		Hello, World! I am a CommentBox.
+export const Hello = function Hello(what) {
+	console.log('Hello, what: ' + what);
+	return ( 
+		<div className="commentBox">
+			Hello, World! I am a CommentBox.
 			<h2>OMG!</h2>
-	</div>
+		</div>
 	);
 };
 
 var what = 'omg';
 
-export const GoodBye = function GoodBye (which) {
+export const GoodBye = function GoodBye(which) {
 	console.log('which: ' + which.which);
 	switch (which.which) {
 	case 'wtf':
