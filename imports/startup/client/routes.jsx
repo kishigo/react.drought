@@ -16,8 +16,10 @@ export const targetReducer = (state, action) => {
     if (action) {
         switch (action.type) {
             case 'TOGGLE':
-                return {
+                return (state.target === constants.HomePage) ? {
                     target: constants.SignInPage
+                } : {
+                    target: constants.HomePage
                 };
             default:
                 return state;
