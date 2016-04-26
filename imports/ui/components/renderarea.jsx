@@ -28,24 +28,43 @@ export const RenderArea = React.createClass({
 	/**
 	 * Example of rendering conditional html based on props.target from parent
 	 */
+	renderSignInPage(target) {
+		return (
+			<div className='renderSignIn'>
+				<div id='content' className='renderArea'>
+					<h2>SignInPage: {target}</h2>
+				</div>
+			</div>
+		);
+	},
+	renderHomePage(target) {
+		return (
+			<div id='content' className='renderArea'>
+				<h2>HomePage: {target}</h2>
+			</div>
+		);
+	},
+	renderUndefined(target) {
+		return (
+			<div id='content' className='renderArea'>
+				<h2>UndefinedPage: {target}</h2>
+			</div>
+		);
+	},
 	render() {
-		console.log('RenderArea: ENTRY, target: ' + this.props.target);
-		switch (this.props.target) {
+		let target = this.props.target;
+		console.log('RenderArea: ENTRY, target: ' + target);
+		switch (target) {
 		case constants.HomePage:
-			return <div id='content' className='renderArea'>
-				<h2>HomePage: {this.props.target}</h2>
-			</div>;
+			return this.renderHomePage(target);
 			break;
 		case constants.SignInPage:
-			return <div id='content' className='renderArea'>
-				<h2>SignInPage: {this.props.target}</h2>
-			</div>;
+			return this.renderSignInPage(target);
 			break;
 		default:
-			return <div id='content' className='renderArea'>
-				<h2>UndefinedPage: {this.props.target}</h2>
-			</div>;
+			return this.renderUndefined(target);
 			break;
 		}
 	}
 });
+
