@@ -28,11 +28,12 @@ export const targetReducer = (state, action) => {
 };
 
 
-export const store = createStore(combineReducers({targetReducer}));
+const store = createStore(combineReducers({targetReducer}));
 
 Meteor.startup(() => {
     render(
         // This is how we hookup redux and react-router.  <Provider> wraps <Router>
+        // store={store}??? What does this do ??? I think it injects store into reducers and maps
         <Provider store={store}>
             <Router history={ browserHistory }>
                 <Route path="/" component={ ActiveTarget }/>

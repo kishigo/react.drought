@@ -57,7 +57,8 @@ const toggleTarget = () => {
 };
 export const SampleX = React.createClass({
     moveState() {
-        store.dispatch({type: 'TOGGLE'});
+        // dispatch is in props so we don't need the store
+        this.props.dispatch({type: 'TOGGLE'});
         //this.setState({target: constants.SignInPage});
     },
     render: function() {
