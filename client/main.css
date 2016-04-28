@@ -2,21 +2,23 @@
 html,
 body {
     margin: 0px;
-    min-height: 800px;
+    height: 100%;
+}
+.base {
+    margin: 0px;
+    height: 100%;
 }
 .containerMain {
     border: 1px solid blue;
     display: flex;
     flex-direction: column;
-    min-height: 800px;
+    height: 100%;
 }
 
 .navBarTop {
     border: 1px solid red;
     order: 1;
-    flex: 0;
     align-self: stretch;
-    /*min-height: inherit;*/
 }
 
 .renderBox {
@@ -36,7 +38,7 @@ body {
     justify-content: flex-start;
     align-self: stretch;
     overflow: auto;
-    min-height: inherit;
+    height: 100%;
 }
 .renderArea {
     border: 1px solid turquoise;
@@ -44,16 +46,14 @@ body {
     flex: 1 1 auto;
     align-self: stretch;
     min-width: 0;
-    min-height: inherit;
 }
 
 .navBarRight {
-    border: 1px solid green;
+    border: 2px solid green;
     order: 3;
-    flex: 0 1 auto;
-    align-self: flex-end;
-    min-height: inherit;
-    overflow: auto;
+    flex: 0;
+    align-self: stretch;
+    white-space: nowrap;
 }
 
 .div3 {
