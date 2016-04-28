@@ -26,8 +26,10 @@ import React from 'react';
 export const RightBar = React.createClass({
 	render() {
 		console.log('RightBar: ENTRY, target: ' + this.props.target);
-		return <div>
-			<h2>RightBar: {this.props.target}</h2>
-		</div>;
+		return (
+			<div className="navBarRight">
+				<h2>RightBar: {this.props.target}</h2>
+			</div>
+		);
 	}
 });

@@ -22,6 +22,7 @@
  * THE SOFTWARE.
  */
 import React from 'react';
+import { RightBar } from './rightbar.jsx';
 import * as constants from '../../../common/constants.js';
 
 export const RenderArea = React.createClass({
@@ -31,7 +32,7 @@ export const RenderArea = React.createClass({
 	renderSignInPage(target) {
 		return (
 			<div className='renderSignIn'>
-				<div id='content' className='renderArea'>
+				<div id='content' className='renderContainer'>
 					<h2>SignInPage: {target}</h2>
 				</div>
 			</div>
@@ -39,14 +40,17 @@ export const RenderArea = React.createClass({
 	},
 	renderHomePage(target) {
 		return (
-			<div id='content' className='renderArea'>
+			<div id='content' className='renderContainer'>
+				<div className="renderArea">
 				<h2>HomePage: {target}</h2>
+					</div>
+				<RightBar target={target}/>
 			</div>
 		);
 	},
 	renderUndefined(target) {
 		return (
-			<div id='content' className='renderArea'>
+			<div id='content' className='renderContainer'>
 				<h2>UndefinedPage: {target}</h2>
 			</div>
 		);

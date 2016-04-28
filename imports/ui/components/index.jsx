@@ -56,34 +56,53 @@ const toggleTarget = () => {
     })
 };
 export const SampleX = React.createClass({
-    moveState() {
-        // dispatch is in props so we don't need the store
-        this.props.dispatch({type: 'TOGGLE'});
-        //this.setState({target: constants.SignInPage});
-    },
-    render: function() {
-        const {target} = this.props;
-        return (
-            <div>
-                <NavBar target={target}/>
-
-                <h3 onClick={this.moveState}>Move the state</h3>
-                <GoodBye which={target}/>
-
-                <h3 onClick={this.gotoPage}>Go to page</h3>
-                <ul role="nav">
-                    {/* declarative routing */}
-                    <li><Link to="/index">index</Link></li>
-                    <li><Link to="/hello">hello</Link></li>
-                </ul>
-                <div id='render' className='div3' style={{position: 'relative'}}>
-                    <RenderArea target={target}/>
-                </div>
-                <RightBar target={target}/>
-            </div>
-        )
-    }
+	moveState() {
+		// dispatch is in props so we don't need the store
+		this.props.dispatch({type: 'TOGGLE'});
+		//this.setState({target: constants.SignInPage});
+	},
+	render: function() {
+		const {target} = this.props;
+		return (
+			<div className="containerMain">
+				<NavBar target={target}/>
+				<RenderArea target={target}/>
+			</div>
+		)
+	}
 });
+//export const SampleX = React.createClass({
+//    moveState() {
+//        // dispatch is in props so we don't need the store
+//        this.props.dispatch({type: 'TOGGLE'});
+//        //this.setState({target: constants.SignInPage});
+//    },
+//    render: function() {
+//        const {target} = this.props;
+//        return (
+//            <div>
+//                <NavBar target={target}/>
+//				<RenderArea target={target}/>
+//
+//
+//                <h3 onClick={this.moveState}>Move the state</h3>
+//                <GoodBye which={target}/>
+//
+//                <h3 onClick={this.gotoPage}>Go to page</h3>
+//                <ul role="nav">
+//                    {/!* declarative routing *!/}
+//                    <li><Link to="/index">index</Link></li>
+//                    <li><Link to="/hello">hello</Link></li>
+//                </ul>
+//                <div id='render' className='div3' style={{position: 'relative'}}>
+//                    <RenderArea target={target}/>
+//                </div>
+//                <RightBar target={target}/>
+//
+//            </div>
+//        )
+//    }
+//});
 
 SampleX.propTypes = {
     target: PropTypes.string.isRequired

@@ -26,8 +26,10 @@ import React from 'react';
 export const NavBar = React.createClass({
 	render() {
 		console.log('NavBar: ENTRY, target: ' + this.props.target);
-		return <div>
+		return (
+		<div className="navBarTop">
 			<h2>NavBar: {this.props.target}</h2>
-			</div>;
+		</div>
+		);
 	}
 });
