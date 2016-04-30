@@ -29,6 +29,9 @@ export const RenderArea = React.createClass({
 	/**
 	 * Example of rendering conditional html based on props.target from parent
 	 */
+    propTypes: {
+        target: React.PropTypes.string
+    },
 	renderSignInPage(target) {
 		return (
 			<div className='renderSignIn'>

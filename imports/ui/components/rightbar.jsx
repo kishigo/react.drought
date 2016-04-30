@@ -24,6 +24,9 @@
 import React from 'react';
 
 export const RightBar = React.createClass({
+    propTypes: {
+        target: React.PropTypes.string
+    },
 	render() {
 		console.log('RightBar: ENTRY, target: ' + this.props.target);
 		return (

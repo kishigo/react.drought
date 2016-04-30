@@ -24,6 +24,9 @@
 import React from 'react';
 
 export const NavBar = React.createClass({
+    propTypes: {
+        target: React.PropTypes.string
+    },
 	render() {
 		console.log('NavBar: ENTRY, target: ' + this.props.target);
 		return (
