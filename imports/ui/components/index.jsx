@@ -63,9 +63,10 @@ export const SampleX = React.createClass({
 	},
 	render: function() {
 		const {target} = this.props;
+        const {dispatch} = this.props;
 		return (
 			<div className="containerMain">
-				<NavBar target={target}/>
+				<NavBar target={target} dispatch={dispatch}/>
 				<RenderArea target={target}/>
 			</div>
 		)
