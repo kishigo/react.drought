@@ -2,17 +2,19 @@
 html,
 body {
     margin: 0px;
+    /* We need height, width specified here for layout to work */
     height: 100%;
+    width: 100%;
 }
 .base {
     margin: 0px;
     height: 100%;
+    width: 100%;
 }
 .containerMain {
+    /* main container goes column-wise */
     border: 1px solid blue;
     display: flex;
-    display: -webkit-flex;
-    display: -moz-box;
     flex-direction: column;
     height: 100%;
 }
@@ -20,26 +22,14 @@ body {
 .navBarTop {
     border: 1px solid red;
     order: 1;
-    -moz-box-ordinal-group: 1;
-    -webkit-order: 1;
     align-self: stretch;
 }
 
-.renderBox {
-    border: 1px solid black;
-    order: 2;
-    -moz-box-ordinal-group: 2;
-    -webkit-order: 2;
-    flex: 1;
-    align-self: stretch;
-    overflow: auto;
-}
 .renderContainer {
+    /* render container goes row-wise to handle the right bar */
     border: 1px solid black;
     display: flex;
     order: 2;
-    -moz-box-ordinal-group: 2;
-    -webkit-order: 2;
     flex: 1;
     flex-flow: row;
     flex-direction: row;
@@ -51,9 +41,7 @@ body {
 .renderArea {
     border: 1px solid turquoise;
     order: 3;
-    -moz-box-ordinal-group: 3;
-    -webkit-order: 3;
-    flex: 1 1 auto;
+    flex: 1;
     align-self: stretch;
     min-width: 0;
 }
@@ -61,10 +49,7 @@ body {
 .navBarRight {
     border: 2px solid green;
     order: 4;
-    -moz-box-ordinal-group: 4;
-    -webkit-order: 4;
     flex: 0;
-    width: 200px;
     align-self: stretch;
     white-space: nowrap;
 }
