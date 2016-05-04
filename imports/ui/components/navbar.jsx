@@ -25,13 +25,18 @@ import React from 'react';
 
 export const NavBar = React.createClass({
     propTypes: {
-        target: React.PropTypes.string
+        target: React.PropTypes.string,
+        dispatch: React.PropTypes.func
+    },
+    moveState() {
+        // dispatch is in props so we don't need the store
+        this.props.dispatch({type: 'TOGGLE'});
     },
 	render() {
 		console.log('NavBar: ENTRY, target: ' + this.props.target);
 		return (
 		<div className="navBarTop">
-			<h2>NavBar: {this.props.target}</h2>
+			<h2 onClick={this.moveState}>NavBar: {this.props.target}</h2>
 		</div>
 		);
 	}

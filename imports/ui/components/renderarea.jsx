@@ -26,52 +26,53 @@ import { RightBar } from './rightbar.jsx';
 import * as constants from '../../../common/constants.js';
 
 export const RenderArea = React.createClass({
-	/**
-	 * Example of rendering conditional html based on props.target from parent
-	 */
+    /**
+     * Example of rendering conditional html based on props.target from parent
+     */
     propTypes: {
         target: React.PropTypes.string
     },
-	renderSignInPage(target) {
-		return (
-			<div className='renderSignIn'>
-				<div id='content' className='renderContainer'>
-					<h2>SignInPage: {target}</h2>
-				</div>
-			</div>
-		);
-	},
-	renderHomePage(target) {
-		return (
-			<div id='content' className='renderContainer'>
-				<div className="renderArea">
-				<h2>HomePage: {target}</h2>
-					</div>
-				<RightBar target={target}/>
-			</div>
-		);
-	},
-	renderUndefined(target) {
-		return (
-			<div id='content' className='renderContainer'>
-				<h2>UndefinedPage: {target}</h2>
-			</div>
-		);
-	},
-	render() {
-		let target = this.props.target;
-		console.log('RenderArea: ENTRY, target: ' + target);
-		switch (target) {
-		case constants.HomePage:
-			return this.renderHomePage(target);
-			break;
-		case constants.SignInPage:
-			return this.renderSignInPage(target);
-			break;
-		default:
-			return this.renderUndefined(target);
-			break;
-		}
-	}
+    renderSignInPage(target) {
+        return (
+        <div id='content' className='renderContainer'>
+            <div className="renderArea">
+                <h2>HomePage: {target}</h2>
+            </div>
+            <RightBar target={target}/>
+        </div>
+        );
+    },
+    renderHomePage(target) {
+        return (
+            <div id='content' className='renderContainer'>
+                <div className="renderArea">
+                    <h2>HomePage: {target}</h2>
+                </div>
+                <RightBar target={target}/>
+            </div>
+        );
+    },
+    renderUndefined(target) {
+        return (
+            <div id='content' className='renderContainer'>
+                <h2>UndefinedPage: {target}</h2>
+            </div>
+        );
+    },
+    render() {
+        let target = this.props.target;
+        console.log('RenderArea: ENTRY, target: ' + target);
+        switch (target) {
+            case constants.HomePage:
+                return this.renderHomePage(target);
+                break;
+            case constants.SignInPage:
+                return this.renderSignInPage(target);
+                break;
+            default:
+                return this.renderUndefined(target);
+                break;
+        }
+    }
 });
 
