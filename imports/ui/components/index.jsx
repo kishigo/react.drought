@@ -7,11 +7,18 @@ import { Link, browserHistory } from 'react-router';
 import * as constants from '../../../common/constants.js';
 import { store } from '../../startup/client/routes.jsx';
 
+/**
+ * deprecated
+ * @constructor
+ */
 export const Index = () => <div>Enclosing
 	<h3>Index</h3>
 	<Hello what='wtf'/>
 </div>;
 
+/**
+ * Deprecated
+ */
 export const Sample = React.createClass({
 	getInitialState() {
 		return {target: constants.HomePage};
@@ -55,11 +62,13 @@ const toggleTarget = () => {
         target: constants.SignInPage
     })
 };
-export const SampleX = React.createClass({
-	moveState() {
-		// dispatch is in props so we don't need the store
-		this.props.dispatch({type: 'TOGGLE'});
-		//this.setState({target: constants.SignInPage});
+/**
+ * AppFrame creates a flexbox container with two items, NavBar and RenderArea
+ */
+export const AppFrame = React.createClass({
+	propTypes: {
+		target: React.PropTypes.string,
+		dispatch: React.PropTypes.func
 	},
 	render: function() {
 		const {target} = this.props;
@@ -72,7 +81,7 @@ export const SampleX = React.createClass({
 		)
 	}
 });
-//export const SampleX = React.createClass({
+//export const AppFrame = React.createClass({
 //    moveState() {
 //        // dispatch is in props so we don't need the store
 //        this.props.dispatch({type: 'TOGGLE'});
@@ -105,6 +114,10 @@ export const SampleX = React.createClass({
 //    }
 //});
 
-SampleX.propTypes = {
+/**
+ * react proptypes
+ * @type {{target: *}}
+ */
+AppFrame.propTypes = {
     target: PropTypes.string.isRequired
 };

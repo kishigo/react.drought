@@ -22,15 +22,22 @@
  * THE SOFTWARE.
  */
 import React from 'react';
+import * as constants from '../../../common/constants.js';
 
+/**
+ * component enabling trivial click on the navbar to cause a reduction
+ */
 export const NavBar = React.createClass({
     propTypes: {
         target: React.PropTypes.string,
         dispatch: React.PropTypes.func
     },
+	/**
+	 * onClick handler, dispatches ActionToggle to redux
+	 */
     moveState() {
         // dispatch is in props so we don't need the store
-        this.props.dispatch({type: 'TOGGLE'});
+        this.props.dispatch({type: constants.ActionToggle});
     },
 	render() {
 		console.log('NavBar: ENTRY, target: ' + this.props.target);

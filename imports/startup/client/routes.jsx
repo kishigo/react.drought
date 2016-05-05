@@ -5,17 +5,23 @@ import { createStore } from 'redux';
 import { combineReducers } from 'redux';
 import { Provider, connect } from 'react-redux';
 
-import { Index, Sample, SampleX } from '../../ui/components/index.jsx';
+import { Index, Sample, AppFrame } from '../../ui/components/index.jsx';
 import { Hello } from '../../ui/components/hello.jsx';
 import * as constants from '../../../common/constants.js';
 
 const initialState = {target: constants.HomePage};
 
+/**
+ * Trivial reducer, toggles state.target between HomePage and SignInPage
+ * @param state - 
+ * @param action - only ActionToggle supported for this trivial reduction
+ * @returns {*} - new state
+ */
 export const targetReducer = (state, action) => {
     state = state || initialState;
     if (action) {
         switch (action.type) {
-            case 'TOGGLE':
+            case constants.ActionToggle:
                 return (state.target === constants.HomePage) ? {
                     target: constants.SignInPage
                 } : {
@@ -27,9 +33,10 @@ export const targetReducer = (state, action) => {
     }
 };
 
-
 const store = createStore(combineReducers({targetReducer}));
-
+/**
+ * Hookup redux and react-router
+ */
 Meteor.startup(() => {
     render(
         // This is how we hookup redux and react-router.  <Provider> wraps <Router>
@@ -47,10 +54,15 @@ Meteor.startup(() => {
 
 
 // Let's try to connect
+/**
+ * Trivial mapping for connect()
+ * @param state - mandatory input
+ * @returns {{target: *}}
+ */
 const mapStateToProps = (state) => {
     return {
         target: state.targetReducer.target
     }
 };
 
-export const ActiveTarget = connect(mapStateToProps)(SampleX);
+export const ActiveTarget = connect(mapStateToProps)(AppFrame);

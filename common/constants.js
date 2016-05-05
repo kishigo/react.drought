@@ -21,5 +21,15 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+/**
+ * target states
+ * @type {string}
+ */
 export const HomePage = 'HomePage';
 export const SignInPage = 'SignInPage';
+
+/**
+ * actions
+ * @type {string}
+ */
+export const ActionToggle = 'TOGGLE';
