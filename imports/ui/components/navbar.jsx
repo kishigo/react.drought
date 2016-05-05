@@ -28,6 +28,11 @@ import * as constants from '../../../common/constants.js';
  * component enabling trivial click on the navbar to cause a reduction
  */
 export const NavBar = React.createClass({
+	navBarStyle: {
+		border: '2px solid green',
+		order: '1',
+		alignSelf: 'stretch'
+	},
     propTypes: {
         target: React.PropTypes.string,
         dispatch: React.PropTypes.func
@@ -42,7 +47,7 @@ export const NavBar = React.createClass({
 	render() {
 		console.log('NavBar: ENTRY, target: ' + this.props.target);
 		return (
-		<div className="navBarTop">
+		<div style={this.navBarStyle}>
 			<h2 onClick={this.moveState}>NavBar: {this.props.target}</h2>
 		</div>
 		);

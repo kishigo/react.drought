@@ -58,66 +58,45 @@ export const Sample = React.createClass({
 });
 
 const toggleTarget = () => {
-    return ({
-        target: constants.SignInPage
-    })
+	return ({
+		target: constants.SignInPage
+	})
 };
 /**
  * AppFrame creates a flexbox container with two items, NavBar and RenderArea
  */
 export const AppFrame = React.createClass({
+	/**
+	 * Inline style for top level container
+	 */
+	appFrameStyle: {
+		/* main container goes column-wise */
+		border: '1px solid pink',
+		display: 'flex',
+		flexDirection: 'column',
+		height: '100%'
+
+	},
 	propTypes: {
 		target: React.PropTypes.string,
 		dispatch: React.PropTypes.func
 	},
-	render: function() {
+	render: function () {
 		const {target} = this.props;
-        const {dispatch} = this.props;
+		const {dispatch} = this.props;
 		return (
-			<div className="containerMain">
+			<div style={this.appFrameStyle}>
 				<NavBar target={target} dispatch={dispatch}/>
 				<RenderArea target={target}/>
 			</div>
 		)
 	}
 });
-//export const AppFrame = React.createClass({
-//    moveState() {
-//        // dispatch is in props so we don't need the store
-//        this.props.dispatch({type: 'TOGGLE'});
-//        //this.setState({target: constants.SignInPage});
-//    },
-//    render: function() {
-//        const {target} = this.props;
-//        return (
-//            <div>
-//                <NavBar target={target}/>
-//				<RenderArea target={target}/>
-//
-//
-//                <h3 onClick={this.moveState}>Move the state</h3>
-//                <GoodBye which={target}/>
-//
-//                <h3 onClick={this.gotoPage}>Go to page</h3>
-//                <ul role="nav">
-//                    {/!* declarative routing *!/}
-//                    <li><Link to="/index">index</Link></li>
-//                    <li><Link to="/hello">hello</Link></li>
-//                </ul>
-//                <div id='render' className='div3' style={{position: 'relative'}}>
-//                    <RenderArea target={target}/>
-//                </div>
-//                <RightBar target={target}/>
-//
-//            </div>
-//        )
-//    }
-//});
 
 /**
  * react proptypes
  * @type {{target: *}}
  */
 AppFrame.propTypes = {
-    target: PropTypes.string.isRequired
+	target: PropTypes.string.isRequired
 };

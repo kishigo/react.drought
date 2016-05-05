@@ -24,13 +24,20 @@
 import React from 'react';
 
 export const RightBar = React.createClass({
+	rightBarStyle: {
+		border: '2px solid orange',
+		order: '4',
+		flex: '0',
+		alignSelf: 'stretch',
+		whiteSpace: 'nowrap'
+	},
     propTypes: {
         target: React.PropTypes.string
     },
 	render() {
 		console.log('RightBar: ENTRY, target: ' + this.props.target);
 		return (
-			<div className="navBarRight">
+			<div style={this.rightBarStyle}>
 				<h2>RightBar: {this.props.target}</h2>
 			</div>
 		);
