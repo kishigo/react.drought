@@ -24,6 +24,7 @@
 import React from 'react';
 import * as constants from '../../../common/constants.js';
 import {RaisedButton} from 'material-ui';
+import {AppBar} from 'material-ui'
 
 /**
  * component enabling trivial click on the navbar to cause a reduction
@@ -45,13 +46,22 @@ export const NavBar = React.createClass({
         // dispatch is in props so we don't need the store
         this.props.dispatch({type: constants.ActionToggle});
     },
-	render() {
-		console.log('NavBar: ENTRY, target: ' + this.props.target);
-		return (
-		<div style={this.navBarStyle}>
-			<h2 onClick={this.moveState}>NavBar: {this.props.target}</h2>
-            <RaisedButton label='foobar' />
-		</div>
-		);
-	}
+    //render() {
+    //    console.log('NavBar: ENTRY, target: ' + this.props.target);
+    //    return (
+    //        <div style={this.navBarStyle}>
+    //            <AppBar
+    //                title='WTF'
+    //                />
+    //        </div>
+    //    );
+    //}
+    render() {
+        console.log('NavBar: ENTRY, target: ' + this.props.target);
+        return (
+                <AppBar
+                    title='WTF'
+                    />
+        );
+    }
 });

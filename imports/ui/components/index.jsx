@@ -6,6 +6,7 @@ import { RenderArea } from './renderarea.jsx';
 import { Link, browserHistory } from 'react-router';
 import * as constants from '../../../common/constants.js';
 import { store } from '../../startup/client/routes.jsx';
+import {AppBar} from 'material-ui'
 
 /**
  * deprecated
