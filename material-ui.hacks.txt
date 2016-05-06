@@ -1,0 +1,25 @@
+node_modules/material-ui/package.json
+
+  "peerDependencies": {
+    "react": "^15.0.1",
+    "react-dom": "^15.0.1",
+    "react-tap-event-plugin": "^1.0.0"
+  },
+
+./package.json
+{
+  "name": "hello",
+  "private": true,
+  "scripts": {
+    "start": "meteor run"
+  },
+  "dependencies": {
+    "material-ui": "^0.14.4",
+    "meteor-node-stubs": "~0.2.0",
+    "react": "^15.0.1",
+    "react-dom": "^15.0.1",
+    "react-redux": "~4.4.5",
+    "react-router": "^2.3.0",
+    "redux": "~3.5.2"
+  }
+}
