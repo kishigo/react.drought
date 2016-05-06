@@ -22,6 +22,7 @@
  * THE SOFTWARE.
  */
 import React from 'react';
+import RaisedButton from 'material-ui/src/raised-button.jsx';
 import * as constants from '../../../common/constants.js';
 
 /**
@@ -49,6 +50,7 @@ export const NavBar = React.createClass({
 		return (
 		<div style={this.navBarStyle}>
 			<h2 onClick={this.moveState}>NavBar: {this.props.target}</h2>
+			<RaisedButton label="Foobar" />
 		</div>
 		);
 	}
