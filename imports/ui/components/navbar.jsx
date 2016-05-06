@@ -22,8 +22,8 @@
  * THE SOFTWARE.
  */
 import React from 'react';
-import RaisedButton from 'material-ui/src/raised-button.jsx';
 import * as constants from '../../../common/constants.js';
+import {RaisedButton} from 'material-ui';
 
 /**
  * component enabling trivial click on the navbar to cause a reduction
@@ -50,7 +50,7 @@ export const NavBar = React.createClass({
 		return (
 		<div style={this.navBarStyle}>
 			<h2 onClick={this.moveState}>NavBar: {this.props.target}</h2>
-			<RaisedButton label="Foobar" />
+            <RaisedButton label='foobar' />
 		</div>
 		);
 	}
