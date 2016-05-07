@@ -24,25 +24,30 @@
 import React from 'react';
 import * as constants from '../../../common/constants.js';
 import {RaisedButton} from 'material-ui';
-import {AppBar} from 'material-ui'
+import {AppBar} from 'material-ui';
+import {IconButton, FlatButton} from 'material-ui';
+import {NavigationClose} from 'material-ui';
+
+var xxx = IconButton;
+var yyy = NavigationClose;
 
 /**
  * component enabling trivial click on the navbar to cause a reduction
  */
 export const NavBar = React.createClass({
-	navBarStyle: {
-		border: '2px solid green',
-		order: '1',
-		alignSelf: 'stretch'
-	},
+    navBarStyle: {
+        border: '2px solid green',
+        order: '1',
+        alignSelf: 'stretch'
+    },
     propTypes: {
         target: React.PropTypes.string,
         dispatch: React.PropTypes.func
     },
-	/**
-	 * onClick handler, dispatches ActionToggle to redux
-	 */
-    moveState() {
+    /**
+     * onClick handler, dispatches ActionToggle to redux
+     */
+        moveState() {
         // dispatch is in props so we don't need the store
         this.props.dispatch({type: constants.ActionToggle});
     },
@@ -59,9 +64,10 @@ export const NavBar = React.createClass({
     render() {
         console.log('NavBar: ENTRY, target: ' + this.props.target);
         return (
-                <AppBar
-                    title='WTF'
-                    />
+            <AppBar
+                title='WTF'
+                children={<FlatButton label='flatness' />}
+                />
         );
     }
 });
