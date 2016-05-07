@@ -11,6 +11,7 @@ import * as constants from '../../../common/constants.js';
 import {AppBar} from 'material-ui'
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import {cyan500, red500} from 'material-ui/styles/colors';
 
 const initialState = {target: constants.HomePage};
 
@@ -38,6 +39,15 @@ export const targetReducer = (state, action) => {
     }
 };
 
+/**
+ * Customize mui theme, here we change appBar height and color
+ */
+const muiTheme = getMuiTheme({
+   appBar: {
+       height: 50,
+       color: red500
+   } 
+});
 const store = createStore(combineReducers({targetReducer}));
 /**
  * Hookup redux and react-router
@@ -47,7 +57,7 @@ Meteor.startup(() => {
         // This is how we hookup redux and react-router.  <Provider> wraps <Router>
         // store={store}??? What does this do ??? I think it injects store into reducers and maps
         <Provider store={store}>
-            <MuiThemeProvider muiTheme={getMuiTheme()}>
+            <MuiThemeProvider muiTheme={muiTheme}>
             <Router history={ browserHistory }>
                 <Route path="/" component={ ActiveTarget }/>
                 <Route path="/hello" component={ Hello }/>
