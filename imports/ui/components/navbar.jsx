@@ -27,6 +27,7 @@ import {RaisedButton} from 'material-ui';
 import {AppBar} from 'material-ui';
 import {IconButton, FlatButton} from 'material-ui';
 import {NavigationClose} from 'material-ui';
+import {Tabs, Tab} from 'material-ui';
 
 var xxx = IconButton;
 var yyy = NavigationClose;
@@ -63,11 +64,31 @@ export const NavBar = React.createClass({
     //}
     render() {
         console.log('NavBar: ENTRY, target: ' + this.props.target);
+        let buttonStyle = {
+            backgroundColor: 'transparent',
+            color: 'white'
+        };
+        let titleStyle = {
+            flex: '0 0',
+            color: 'green'
+        };
+        let styledTitle = (
+            <span style={titleStyle}>
+                WTFx
+                </span>
+        );
+
         return (
             <AppBar
-                title='WTF'
-                children={<FlatButton label='flatness' />}
-                />
+                title={styledTitle}
+                style={{flex: '1 1 content'}}
+                >
+                <FlatButton label='button-1' style={buttonStyle}/>
+                <FlatButton label='button-2' style={buttonStyle}/>
+                <FlatButton label='button-3' style={buttonStyle}/>
+                <FlatButton label='button-4' style={buttonStyle}/>
+                <FlatButton label='button-5' style={buttonStyle}/>
+            </AppBar>
         );
     }
 });

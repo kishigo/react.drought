@@ -45,7 +45,8 @@ export const targetReducer = (state, action) => {
 const muiTheme = getMuiTheme({
    appBar: {
        height: 50,
-       color: red500
+       color: red500,
+       flex: 0
    } 
 });
 const store = createStore(combineReducers({targetReducer}));
