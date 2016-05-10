@@ -49,8 +49,12 @@ export const NavBar = React.createClass({
      * onClick handler, dispatches ActionToggle to redux
      */
         moveState() {
+        console.log('moveState');
         // dispatch is in props so we don't need the store
         this.props.dispatch({type: constants.ActionToggle});
+    },
+    mouseEnterButton(event) {
+        console.log('mouseEnterButton');
     },
     //render() {
     //    console.log('NavBar: ENTRY, target: ' + this.props.target);
@@ -72,10 +76,23 @@ export const NavBar = React.createClass({
             flex: '0 0',
             color: 'green'
         };
+        /**
+         * This is nominally a NavBar title element but the only way I have found
+         * to add buttons from the left in a NavBar is to add them here.  This is because
+         * MUI is placing the title element in a div which is set to flex 1 1 automatically
+         * If you just add text to the title entry in the NavBar, you get an h2 with flex 1 1
+         * @type {XML}
+         */
         let styledTitle = (
-            <span style={titleStyle}>
+            <div style={titleStyle}>
                 WTFx
-                </span>
+                <FlatButton 
+                    label='button-x'
+                    onTouchStart={this.moveState}
+                    onMouseEnter={this.mouseEnterButton}
+                    onClick={this.moveState}
+                    style={buttonStyle}/>
+            </div>
         );
 
         return (
@@ -83,11 +100,11 @@ export const NavBar = React.createClass({
                 title={styledTitle}
                 style={{flex: '1 1 content'}}
                 >
-                <FlatButton label='button-1' style={buttonStyle}/>
-                <FlatButton label='button-2' style={buttonStyle}/>
-                <FlatButton label='button-3' style={buttonStyle}/>
-                <FlatButton label='button-4' style={buttonStyle}/>
-                <FlatButton label='button-5' style={buttonStyle}/>
+                <FlatButton label='button-1' style={buttonStyle} onClick={this.moveState}/>
+                <FlatButton label='button-2' style={buttonStyle} onClick={this.moveState}/>
+                <FlatButton label='button-3' style={buttonStyle} onClick={this.moveState}/>
+                <FlatButton label='button-4' style={buttonStyle} onClick={this.moveState}/>
+                <FlatButton label='button-5' style={buttonStyle} onClick={this.moveState}/>
             </AppBar>
         );
     }
