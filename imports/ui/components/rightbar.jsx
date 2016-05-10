@@ -29,7 +29,8 @@ export const RightBar = React.createClass({
 		order: '4',
 		flex: '0',
 		alignSelf: 'stretch',
-		whiteSpace: 'nowrap'
+		whiteSpace: 'nowrap',
+        backgroundColor: 'red'
 	},
     propTypes: {
         target: React.PropTypes.string
