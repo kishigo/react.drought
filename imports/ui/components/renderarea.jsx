@@ -50,29 +50,30 @@ export const RenderArea = React.createClass({
 	 * Example of rendering conditional html based on props.target from parent
 	 */
 	propTypes: {
-		target: React.PropTypes.string
+		target: React.PropTypes.string,
+		dispatch: React.PropTypes.func
 	},
-	renderSignInPage(target) {
+	renderSignInPage(target, dispatch) {
 		return (
 			<div id='content' style={this.renderContainerStyle}>
 				<div style={this.renderAreaStyle}>
 					<h2>HomePage: {target}</h2>
 				</div>
-				<RightBar target={target}/>
+				<RightBar target={target} dispatch={dispatch}/>
 			</div>
 		);
 	},
-	renderHomePage(target) {
+	renderHomePage(target, dispatch) {
 		return (
 			<div id='content' style={this.renderContainerStyle}>
 				<div style={this.renderAreaStyle}>
 					<h2>HomePage: {target}</h2>
 				</div>
-				<RightBar target={target}/>
+				<RightBar target={target} dispatch={dispatch}/>
 			</div>
 		);
 	},
-	renderUndefined(target) {
+	renderUndefined(target, dispatch) {
 		return (
 			<div id='content' style={this.renderContainerStyle}>
 				<h2>UndefinedPage: {target}</h2>
@@ -81,16 +82,17 @@ export const RenderArea = React.createClass({
 	},
 	render() {
 		let target = this.props.target;
+		let dispatch = this.props.dispatch;
 		console.log('RenderArea: ENTRY, target: ' + target);
 		switch (target) {
 		case constants.HomePage:
-			return this.renderHomePage(target);
+			return this.renderHomePage(target, dispatch);
 			break;
 		case constants.SignInPage:
-			return this.renderSignInPage(target);
+			return this.renderSignInPage(target, dispatch);
 			break;
 		default:
-			return this.renderUndefined(target);
+			return this.renderUndefined(target, dispatch);
 			break;
 		}
 	}

@@ -12,6 +12,8 @@ import {AppBar} from 'material-ui'
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {cyan500, red500} from 'material-ui/styles/colors';
+import {RightBar} from '../../ui/components/rightbar.jsx';
+import {NavBar} from '../../ui/components/navbar.jsx';
 
 const initialState = {target: constants.HomePage};
 
@@ -44,7 +46,6 @@ export const targetReducer = (state, action) => {
  */
 const muiTheme = getMuiTheme({
    appBar: {
-       height: 50,
        color: red500,
        flex: 0
    } 
@@ -79,8 +80,13 @@ Meteor.startup(() => {
  */
 const mapStateToProps = (state) => {
     return {
-        target: state.targetReducer.target
+        target: state.targetReducer.target,
+		dispatch: store.dispatch
     }
 };
 
 export const ActiveTarget = connect(mapStateToProps)(AppFrame);
+// WrappedNavBar is NavBar after connect wraps it.  This makes the props available without having to explicitly pass 
+// from parent.  An example of connecting nested components.  Improves performance at the cost of increased coupling
+export const WrappedNavBar = connect(mapStateToProps)(NavBar);
+console.log('WrappedNavBar= ' + WrappedNavBar);

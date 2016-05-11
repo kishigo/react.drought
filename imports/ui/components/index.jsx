@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import { Hello, GoodBye } from './hello.jsx';
 import { NavBar } from './navbar.jsx';
+import { WrappedNavBar } from '../../startup/client/routes.jsx';
 import { RightBar } from './rightbar.jsx';
 import { RenderArea } from './renderarea.jsx';
 import { Link, browserHistory } from 'react-router';
@@ -87,8 +88,8 @@ export const AppFrame = React.createClass({
 		const {dispatch} = this.props;
 		return (
 			<div style={this.appFrameStyle}>
-				<NavBar target={target} dispatch={dispatch}/>
-				<RenderArea target={target}/>
+				<WrappedNavBar/>
+				<RenderArea target={target} dispatch={dispatch}/>
 			</div>
 		)
 	}
